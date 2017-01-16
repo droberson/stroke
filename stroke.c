@@ -185,7 +185,7 @@ const char *b_search(u_char *prefix) {
 
 char *eprintf(u_char *packet) {
   int n;
-  static char address[16];
+  static char address[18];
 
   n =  sprintf(address, "%.2x:", packet[6]);
   n += sprintf(address + n, "%.2x:", packet[7]);
@@ -202,13 +202,13 @@ char *eprintf(u_char *packet) {
 char *iprintf(u_char *address) {
   static char ip[17];
 
-  sprintf(ip, "%3d.%3d.%3d.%3d",
+  sprintf(ip, "%d.%d.%d.%d",
 	  (address[0] & 255),
 	  (address[1] & 255),
 	  (address[2] & 255),
 	  (address[3] & 255));
 
-  return ip;
+  return (ip);
 }
 
 
